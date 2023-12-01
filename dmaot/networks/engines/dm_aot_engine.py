@@ -246,7 +246,7 @@ class DMAOTEngine(nn.Module):
             self.init_object_memories(lstt_long_memories, mask)
         else:
             self.update_long_term_memory(lstt_long_memories, mask, is_ref=True)
-
+        self.ref_frame_num += 1
         self.last_mem_step = self.frame_step
 
         self.short_term_memories_list = [lstt_short_memories]
@@ -621,6 +621,7 @@ class DMAOTEngine(nn.Module):
         self.offline_one_hot_masks = None
         self.offline_frames = -1
         self.total_offline_frame_num = 0
+        self.ref_frame_num = 0
 
         self.curr_enc_embs = None
         self.curr_memories = None

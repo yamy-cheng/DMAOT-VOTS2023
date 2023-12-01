@@ -1,3 +1,8 @@
 /pretrained_models
 /sequences
 /Pytorch-Correlation-extension
+/logs
+**/__pycache__
+/results
+/*.zip
+*.pyc

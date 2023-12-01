@@ -101,9 +101,12 @@ class DefaultEngineConfig():
         self.TEST_MAX_LONG_EDGE = 800 * 1.3
         self.TEST_WORKERS = 4
 
+        # DM-Inference
         self.PATCH_WISED_DROP_MEMORIES = False
         self.PATCH_TEST_LONG_TERM_MEM_MAX = 999999
-        
+        self.PATCH_SIM_LAYERS_IDX = [0, 1, 2, 3]
+        self.PATCH_SIM_MEMORY_IDX = [0, 1]
+
         # GPU distribution
         self.DIST_ENABLE = True
         self.DIST_BACKEND = "nccl"  # "gloo"

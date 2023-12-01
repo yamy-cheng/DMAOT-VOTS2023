@@ -28,9 +28,6 @@ contourpy==1.0.7
 cryptography==40.0.2
 cycler==0.11.0
 Cython==0.29.34
-davis==0.3
-davis2017==0.1.0
-deboxt==1.0
 debugpy==1.6.7
 decorator==5.1.1
 defusedxml==0.7.1
@@ -104,7 +101,6 @@ mdit-py-plugins==0.3.3
 mdurl==0.1.2
 mistune==2.0.5
 multidict==6.0.4
-MultiScaleDeformableAttention==1.0
 nbclassic==1.0.0
 nbclient==0.7.4
 nbconvert==7.4.0
@@ -176,7 +172,6 @@ safetensors==0.3.1
 scikit-image==0.20.0
 scipy==1.9.1
 # Editable install with no version control (segment-anything==1.0)
--e /data2/cym/VOTS2023/sam
 semantic-version==2.10.0
 Send2Trash==1.8.2
 six==1.16.0
@@ -193,14 +188,10 @@ tensorboard-data-server==0.7.0
 tensorboardX==2.6
 terminado==0.17.1
 texttable==1.6.7
-thinplate @ git+https://github.com/cheind/py-thin-plate-spline@f6995795397118b7d0ac01aecd3f39ffbfad9dee
 tifffile==2023.4.12
 timm==0.9.1
 tinycss2==1.2.1
 toolz==0.12.0
-torch==1.10.0+cu111
-torchaudio==0.10.0+rocm4.1
-torchvision==0.11.0+cu111
 tornado==6.3.1
 tqdm==4.65.0
 traitlets==5.9.0
@@ -215,7 +206,6 @@ virtualenv-clone==0.5.7
 virtualenvwrapper==4.8.4
 visdom==0.2.4
 # Editable install with no version control (vos_benchmark==0.1.0)
--e /data2/cym/vos-benchmark-main
 vot==1
 vot-toolkit==0.6.2
 vot-trax==4.0.0

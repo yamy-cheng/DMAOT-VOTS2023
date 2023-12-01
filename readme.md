@@ -1,7 +1,7 @@
 # 🏆VOTS 2023 Winner: DMAOT（Decoupled Memory AOT）
 
 ## Intro
-DMAOT ranked **1st** in the [**VOTS 2023**](https://www.votchallenge.net/vots2023/) challenge ([leaderboard](https://eu.aihub.ml/competitions/201#results)).
+DMAOT ranked **1st** in the [**VOTS 2023**](https://www.votchallenge.net/vots2023/) challenge ([leaderboard](https://eu.aihub.ml/competitions/201#results)). As a plug-and-play method, DMAOT enhances the segmentation ability of AOT series algorithms in long-time videos without requiring any training process.
 <!-- 插入奖状 -->
 <p align="center"><img src="./figures/certificate.jpg" width = "400" height = "500" alt="vots2023_certificate"/> </p>
 
