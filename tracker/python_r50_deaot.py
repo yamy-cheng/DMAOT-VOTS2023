@@ -57,7 +57,8 @@ class AOTTracker(object):
                                    aot_model=self.model,
                                    gpu_id=gpu_id,
                                    short_term_mem_skip=cfg.TEST_SHORT_TERM_MEM_GAP,
-                                   long_term_mem_gap=cfg.TEST_LONG_TERM_MEM_GAP)
+                                   long_term_mem_gap=cfg.TEST_LONG_TERM_MEM_GAP,
+                                   max_len_long_term=cfg.TEST_LONG_TERM_MEM_MAX)
 
         self.transform = transforms.Compose([
         # tr.MultiRestrictSize_(cfg.TEST_MAX_SHORT_EDGE,

@@ -309,6 +309,7 @@ class AOTEngine(nn.Module):
             updated_long_term_memories.append(updated_e)
         self.long_term_memories = updated_long_term_memories
 
+
     def update_short_term_memory(self, curr_mask, curr_id_emb=None, skip_long_term_update=False):
         if curr_id_emb is None:
             if len(curr_mask.size()) == 3 or curr_mask.size()[0] == 1:
