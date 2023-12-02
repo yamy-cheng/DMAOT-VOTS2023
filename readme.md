@@ -6,7 +6,7 @@ DMAOT ranked **1st** in the [**VOTS 2023**](https://www.votchallenge.net/vots202
 <p align="center"><img src="./figures/certificate.jpg" width = "400" height = "500" alt="vots2023_certificate"/> </p>
 
 ### Instance-wise long-term memories
-We decouple the **frame-wise long-term memory** used in the AOT series frameworks and transform it into instance-wise long-term memory. This enhancement provides more precise control over the long-term memory bank of each individual, facilitating fine-grained memory management.
+We decouple the **frame-wise long-term memory** used in the AOT series frameworks and transform it into **instance-wise long-term memory**. This enhancement provides more precise control over the long-term memory bank of each individual, facilitating fine-grained memory management.
 <p align="center"><img src="./figures/decouple.jpg" width = "600" height = "300" alt="Instance-wise long-term memory bank"/> </p>
 
 ### Dropout frame strategy based on cosine similarity.
