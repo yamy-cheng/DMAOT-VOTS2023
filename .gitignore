@@ -6,3 +6,7 @@
 /results
 /*.zip
 *.pyc
+/tracker/python_r50_aot.py
+evaluate_1.sh
+run.sh
+*fll*.py

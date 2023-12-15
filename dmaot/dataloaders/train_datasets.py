@@ -645,7 +645,231 @@ class YOUTUBEVOS_Train(VOSTrain):
             self.ann_f = json.load(open(self.seq_list_file, 'r'))['videos']
             return True
 
+class VIPSeg_Train(VOSTrain):
+    def __init__(self,
+                 root='./datasets/VIPSeg_720P',
+                 transform=None,
+                 rgb=True,
+                 repeat_time=1,
+                 rand_gap=3,
+                 seq_len=3,
+                 rand_reverse=True,
+                 dynamic_merge=True,
+                 enable_prev_frame=False,
+                 max_obj_n=10,
+                 merge_prob=0.3):
+        # image_root = os.path.join(root, 'images')
+        image_root = os.path.join(root, 'train/JPEGImages')
+        label_root = os.path.join(root, 'train/Annotations')
+        seq_names = list(np.sort(os.listdir(os.path.join(image_root))))
+        print('%d seqs in VIPSeg'%len(seq_names))
 
+        imglistdic = {}
+        for seq_name in seq_names:
+            images = list(
+                np.sort(os.listdir(os.path.join(image_root, seq_name))))
+            labels = list(
+                np.sort(os.listdir(os.path.join(label_root, seq_name))))
+            if len(images) != len(labels):
+                print(seq_name,'bad data!')
+            else:
+                imglistdic[seq_name] = (images, labels)
+
+        super().__init__(image_root,
+                            label_root,
+                            imglistdic,
+                            transform,
+                            rgb,
+                            repeat_time,
+                            rand_gap,
+                            seq_len,
+                            rand_reverse,
+                            dynamic_merge,
+                            enable_prev_frame,
+                            merge_prob=merge_prob,
+                            max_obj_n=max_obj_n)
+        
+class LASOT_Train(VOSTrain):
+    def __init__(self,
+                 root='./datasets/LaSOT_VOS',
+                 transform=None,
+                 rgb=True,
+                 rand_gap=3,
+                 seq_len=3,
+                 rand_reverse=True,
+                 dynamic_merge=True,
+                 repeat_time=1,
+                 enable_prev_frame=False,
+                 max_obj_n=10,
+                 merge_prob=0.3):
+        # image_root = os.path.join(root, 'images')
+        image_root = os.path.join(root, 'JPEGImages')
+        label_root = os.path.join(root, 'Annotations')
+        seq_names = list(np.sort(os.listdir(os.path.join(image_root))))
+        print('%d seqs in LaSOT_VOS'%len(seq_names))
+
+        imglistdic = {}
+        for seq_name in seq_names:
+            images_dir = sorted(glob(os.path.join(image_root,seq_name,'*.jpg')))
+            images = [x.split('/')[-1] for x in images_dir]
+            labels_dir = sorted(glob(os.path.join(label_root,seq_name,'*.png')))
+            labels = [x.split('/')[-1] for x in labels_dir]
+            if len(images) != len(labels):
+                print(seq_name,'bad data!')
+            elif len(images) == len(labels) and len(images)==0:
+                print(seq_name,'empty data!')
+            else:
+                imglistdic[seq_name] = (images, labels)
+
+        super().__init__(image_root,
+                            label_root,
+                            imglistdic,
+                            transform,
+                            rgb,
+                            repeat_time,
+                            rand_gap,
+                            seq_len,
+                            rand_reverse,
+                            dynamic_merge,
+                            enable_prev_frame,
+                            merge_prob=merge_prob,
+                            max_obj_n=max_obj_n)
+
+class GOT10K_Train(VOSTrain):
+    def __init__(self,
+                 root='./datasets/GOT10K',
+                 transform=None,
+                 rgb=True,
+                 rand_gap=5,
+                 repeat_time=1,
+                 seq_len=3,
+                 rand_reverse=True,
+                 dynamic_merge=True,
+                 enable_prev_frame=False,
+                 max_obj_n=10,
+                 merge_prob=0.3):
+        # image_root = os.path.join(root, 'images')
+        image_root = os.path.join(root, 'JPEGImages')
+        label_root = os.path.join(root, 'Annotations')
+        seq_names = list(np.sort(os.listdir(os.path.join(image_root))))
+        print('%d seqs in GOT10K'%len(seq_names))
+
+        imglistdic = {}
+        for seq_name in seq_names:
+            images_dir = sorted(glob(os.path.join(image_root,seq_name,'*.jpg')))
+            images = [x.split('/')[-1] for x in images_dir]
+            labels_dir = sorted(glob(os.path.join(label_root,seq_name,'*.png')))
+            labels = [x.split('/')[-1] for x in labels_dir]
+            if len(images) != len(labels):
+                print(seq_name,'bad data!')
+            elif len(images) == len(labels) and len(images)==0:
+                print(seq_name,'empty data!')
+            else:
+                imglistdic[seq_name] = (images, labels)
+
+        super().__init__(image_root,
+                            label_root,
+                            imglistdic,
+                            transform,
+                            rgb,
+                            repeat_time,
+                            rand_gap,
+                            seq_len,
+                            rand_reverse,
+                            dynamic_merge,
+                            enable_prev_frame,
+                            merge_prob=merge_prob,
+                            max_obj_n=max_obj_n)
+class MOSE_Train(VOSTrain):
+    def __init__(self,
+                 root='./datasets/mose',
+                 transform=None,
+                 rgb=True,
+                 rand_gap=5,
+                 seq_len=3,
+                 rand_reverse=True,
+                 repeat_time=1,
+                 dynamic_merge=True,
+                 enable_prev_frame=False,
+                 max_obj_n=10,
+                 merge_prob=0.3):
+        image_root = os.path.join(root, 'train/JPEGImages')
+        label_root = os.path.join(root, 'train/Annotations')
+        seq_names = list(np.sort(os.listdir(os.path.join(image_root))))
+        print('%d seqs in mose'%len(seq_names))
+
+        imglistdic = {}
+        for seq_name in seq_names:
+            images_dir = sorted(glob(os.path.join(image_root,seq_name,'*.jpg')))
+            images = [x.split('/')[-1] for x in images_dir]
+            labels_dir = sorted(glob(os.path.join(label_root,seq_name,'*.png')))
+            labels = [x.split('/')[-1] for x in labels_dir]
+            if len(images) != len(labels):
+                print(seq_name,'bad data!')
+            elif len(images) == len(labels) and len(images)==0:
+                print(seq_name,'empty data!')
+            else:
+                imglistdic[seq_name] = (images, labels)
+
+        super().__init__(image_root,
+                            label_root,
+                            imglistdic,
+                            transform,
+                            rgb,
+                            repeat_time,
+                            rand_gap,
+                            seq_len,
+                            rand_reverse,
+                            dynamic_merge,
+                            enable_prev_frame,
+                            merge_prob=merge_prob,
+                            max_obj_n=max_obj_n)
+        
+class OVIS_Train(VOSTrain):
+    def __init__(self,
+                 root='./datasets/ovis',
+                 transform=None,
+                 rgb=True,
+                 rand_gap=5,
+                 seq_len=3,
+                 rand_reverse=True,
+                 repeat_time=1,
+                 dynamic_merge=True,
+                 enable_prev_frame=False,
+                 max_obj_n=10,
+                 merge_prob=0.3):
+        image_root = os.path.join(root, 'JPEGImages')
+        label_root = os.path.join(root, 'Annotations')
+        seq_names = list(np.sort(os.listdir(os.path.join(image_root))))
+        print('%d seqs in mose'%len(seq_names))
+
+        imglistdic = {}
+        for seq_name in seq_names:
+            images_dir = sorted(glob(os.path.join(image_root,seq_name,'*.jpg')))
+            images = [x.split('/')[-1] for x in images_dir]
+            labels_dir = sorted(glob(os.path.join(label_root,seq_name,'*.png')))
+            labels = [x.split('/')[-1] for x in labels_dir]
+            if len(images) != len(labels):
+                print(seq_name,'bad data!')
+            elif len(images) == len(labels) and len(images)==0:
+                print(seq_name,'empty data!')
+            else:
+                imglistdic[seq_name] = (images, labels)
+
+        super().__init__(image_root,
+                            label_root,
+                            imglistdic,
+                            transform,
+                            rgb,
+                            repeat_time,
+                            rand_gap,
+                            seq_len,
+                            rand_reverse,
+                            dynamic_merge,
+                            enable_prev_frame,
+                            merge_prob=merge_prob,
+                            max_obj_n=max_obj_n)
+                            
 class TEST(Dataset):
     def __init__(
         self,
