@@ -21,8 +21,6 @@ class EngineConfig(DefaultEngineConfig):
             self.TRAIN_AUX_LOSS_RATIO = 0.1
 
             self.init_dir(data='/home/cym/datasets',root='/home/cym/proj/VOS03-de',eval='./')
-            # self.MODEL_ENCODER_PRETRAIN = './data_wd/xyy/pretrain_models/swin_base_patch4_window7_224_22k.pth'
-            # self.PRETRAIN_MODEL = './data_wd/xyy/pretrain_models/swin_base_patch4_window7_224_22k.pth'
 
             self.DATA_PRE_STRONG_AUG = True
             self.DATA_TPS_PROB = 0.3
@@ -33,7 +31,7 @@ class EngineConfig(DefaultEngineConfig):
 
             self.DATASETS = ['youtubevos', 'davis2017', 'lasot', 'got10k', 'mose', 'vipseg', 'ovis']
         
-            self.init_dir(data='/home/cym/datasets',root='/home/cym/proj/VOS03-de',eval='./')
+            self.init_dir(data='/home/cym/datasets',root='/home/cym/proj/VOS03-de',eval='./')   # modify
             self.DATA_YTB_REPEAT = 4
             self.DATA_DAVIS_REPEAT = 15
             self.DATA_LASOT_REPEAT = 6
@@ -63,5 +61,3 @@ class EngineConfig(DefaultEngineConfig):
             self.DATA_RANDOM_GRAYSCALE = 0.2
             self.DATA_RANDOM_COLOR_JITTER = 0.8
 
-            # self.TRAIN_AUX_LOSS_WEIGHT = 1.0
-            # self.TRAIN_AUX_LOSS_RATIO = 0.75
