@@ -257,6 +257,7 @@ def main():
                         default='./pretrain_models/R50_AOTL_PRE_YTB_DAV.pth')
 
     parser.add_argument('--max_resolution', type=float, default=480 * 1.3)
+    parser.add_argument('--max_long', type=int, default=99999)
 
     parser.add_argument('--amp', action='store_true')
     parser.set_defaults(amp=False)
@@ -271,9 +272,10 @@ def main():
     cfg.TEST_CKPT_PATH = args.ckpt_path
     cfg.TEST_DATA_PATH = args.data_path
     cfg.TEST_OUTPUT_PATH = args.output_path
-
     cfg.TEST_MIN_SIZE = None
     cfg.TEST_MAX_SIZE = args.max_resolution * 800. / 480.
+
+    cfg.TEST_LONG_TERM_MEM_MAX = args.max_long
 
     if args.amp:
         with torch.cuda.amp.autocast(enabled=True):

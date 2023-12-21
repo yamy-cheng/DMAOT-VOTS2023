@@ -104,6 +104,7 @@ class DefaultEngineConfig():
         # DM-Inference
         self.PATCH_WISED_DROP_MEMORIES = False
         self.PATCH_TEST_LONG_TERM_MEM_MAX = 999999
+        self.TEST_LONG_TERM_MEM_MAX = 999999
         self.PATCH_SIM_LAYERS_IDX = [0, 1, 2, 3]
         self.PATCH_SIM_MEMORY_IDX = [0, 1]
 
